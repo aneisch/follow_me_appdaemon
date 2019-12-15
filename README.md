@@ -12,7 +12,7 @@ Alternatively, you can download the `follow_me` directory from inside the `apps`
 
 ## How it works
 
-You can define an instance of the app in your apps.yaml file for every "group" of leader/follower you have. 
+You can define an instance of the app in your apps.yaml file for every "group" of leader/follower you have. When the leader turns on, the follower will, well... follow! Same goes for off. You can also make the follower assume the inverted state of the leader. Only works with on/off state. 
 
 ## App configuration
 
