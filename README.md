@@ -31,6 +31,9 @@ key | optional | type | default | description
 `leader` | False | string OR comma separated | | The entity_id(s) you want to lead.
 `follower` | False | string OR comma separated | | The entity_id(s) you want to follow leader state.
 `invert` | True | boolean | False | Invert behavior of leader (if a leader turns off, followers turn on).
+`follow_on` | True | boolean | True | Follow `on` state of leader(s). Used for unidirectional follow.
+`follow_off` | True | boolean | True | Follow `off` state of leader(s). Used for unidirectional follow.
+
 
 ## Issues/Feature Requests
 
