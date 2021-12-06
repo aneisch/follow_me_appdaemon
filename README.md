@@ -33,6 +33,7 @@ key | optional | type | default | description
 `invert` | True | boolean | False | Invert behavior of leader (if a leader turns off, followers turn on).
 `follow_on` | True | boolean | True | Follow `on` state of leader(s). Used for unidirectional follow.
 `follow_off` | True | boolean | True | Follow `off` state of leader(s). Used for unidirectional follow.
+`delay` | True | integer | 0 | Delay seconds before reacting to leader.
 
 
 ## Issues/Feature Requests
