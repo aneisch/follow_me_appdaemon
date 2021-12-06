@@ -8,7 +8,7 @@ class Follow(hass.Hass):
             self.listen_state(self.state_change, entity)
 
         # Defaults
-        self.delay = 0
+        self.delay = 5
         self.invert = False
         self.follow_on = True
         self.follow_off = True
@@ -38,10 +38,10 @@ class Follow(hass.Hass):
 
             for device in self.split_device_list(self.args["follower"]):
                 if self.invert:
-                    self.log(f"Turning off {device} in {self.delay} seconds")
+                    self.log(f"Turning off {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_off(device), self.delay)
                 else:
-                    self.log(f"Turning on {device} in {self.delay} seconds")
+                    self.log(f"Turning on {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_on_handler, self.delay, entity_id=device)
 
         elif new == "off" and old != "unavailable" and old != "Unavailable":
@@ -50,8 +50,8 @@ class Follow(hass.Hass):
 
             for device in self.split_device_list(self.args["follower"]):
                 if self.invert:
-                    self.log(f"Turning on {device} in {self.delay} seconds")
+                    self.log(f"Turning on {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_on(device), self.delay)
                 else:
-                    self.log(f"Turning off {device} in {self.delay} seconds")
+                    self.log(f"Turning off {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_off_handler, self.delay, entity_id=device)
