@@ -39,7 +39,7 @@ class Follow(hass.Hass):
             for device in self.split_device_list(self.args["follower"]):
                 if self.invert:
                     self.log(f"Turning off {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
-                    self.run_in(self.turn_off(device), self.delay)
+                    self.run_in(self.turn_off_handler, self.delay, entity_id=device)
                 else:
                     self.log(f"Turning on {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_on_handler, self.delay, entity_id=device)
@@ -51,7 +51,7 @@ class Follow(hass.Hass):
             for device in self.split_device_list(self.args["follower"]):
                 if self.invert:
                     self.log(f"Turning on {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
-                    self.run_in(self.turn_on(device), self.delay)
+                    self.run_in(self.turn_on_handler, self.delay, entity_id=device)
                 else:
                     self.log(f"Turning off {device}{f' in {self.delay} seconds' if self.delay > 0 else ''}")
                     self.run_in(self.turn_off_handler, self.delay, entity_id=device)
